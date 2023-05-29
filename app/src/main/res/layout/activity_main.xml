@@ -138,7 +138,7 @@
         app:layout_constraintBottom_toTopOf="@id/four_button" />
 
     <Button
-        android:id="@+id/multiple_button"
+        android:id="@+id/multiply_button"
         android:text="*"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
