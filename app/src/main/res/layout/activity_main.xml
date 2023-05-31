@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        android:text="--"
+        android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -155,7 +155,16 @@
         android:text="Clear"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@id/del_button"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/nine_button" />
+
+    <Button
+        android:id="@+id/del_button"
+        android:text="DEL"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@id/divide_button"
         app:layout_constraintBottom_toTopOf="@id/seven_button" />
 
     <Button
