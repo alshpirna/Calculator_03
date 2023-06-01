@@ -11,103 +11,102 @@ import com.shaleksander.calculator_03.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val numberStringBuilder = StringBuilder()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        val numberStringBuilder = StringBuilder()
+        setListeners()
+    }
 
-        binding.zeroButton.setOnClickListener {
+    private fun setListeners() = with(binding){
+        zeroButton.setOnClickListener {
             numberStringBuilder.append(0)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
 
-        binding.oneButton.setOnClickListener {
+        oneButton.setOnClickListener {
             numberStringBuilder.append(1)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.twoButton.setOnClickListener {
+        twoButton.setOnClickListener {
             numberStringBuilder.append(2)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.threeButton.setOnClickListener {
+        threeButton.setOnClickListener {
             numberStringBuilder.append(3)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.fourButton.setOnClickListener {
+        fourButton.setOnClickListener {
             numberStringBuilder.append(4)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.fiveButton.setOnClickListener {
+        fiveButton.setOnClickListener {
             numberStringBuilder.append(5)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.sixButton.setOnClickListener {
+        sixButton.setOnClickListener {
             numberStringBuilder.append(6)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.sevenButton.setOnClickListener {
+        sevenButton.setOnClickListener {
             numberStringBuilder.append(7)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.eigthButton.setOnClickListener {
+        eigthButton.setOnClickListener {
             numberStringBuilder.append(8)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.nineButton.setOnClickListener {
+        nineButton.setOnClickListener {
             numberStringBuilder.append(9)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.plusButton.setOnClickListener {
+        plusButton.setOnClickListener {
             numberStringBuilder.append("+")
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.minusButton.setOnClickListener {
+        minusButton.setOnClickListener {
             numberStringBuilder.append("-")
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.multiplyButton.setOnClickListener {
+        multiplyButton.setOnClickListener {
             numberStringBuilder.append("*")
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.divideButton.setOnClickListener {
+        divideButton.setOnClickListener {
             numberStringBuilder.append("/")
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
-        binding.pointButton.setOnClickListener {
+        pointButton.setOnClickListener {
             numberStringBuilder.append(".")
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
 
-        binding.clearButton.setOnClickListener {
-            binding.resultTextView.text = "0"
+        clearButton.setOnClickListener {
+            resultTextView.text = "0"
             numberStringBuilder.clear()
         }
-        binding.delButton.setOnClickListener {
+        delButton.setOnClickListener {
             numberStringBuilder.deleteCharAt(numberStringBuilder.length - 1)
-            binding.resultTextView.text = numberStringBuilder
+            resultTextView.text = numberStringBuilder
         }
 
 
-        binding.equalButton.setOnClickListener {
+        equalButton.setOnClickListener {
 
             try {
                 val stringExpr = numberStringBuilder.toString()
                 val expression = Expression(stringExpr)
                 val result = expression.evaluate().numberValue
-                binding.resultTextView.text = result.toString()
+                resultTextView.text = result.toString()
                 numberStringBuilder.clear()
                 numberStringBuilder.append(result.toString())
             }catch (t: Throwable){
                 Toast.makeText(this@MainActivity, "Exception: $t", Toast.LENGTH_LONG).show()
             }
         }
-
-
-
-
     }
 
 }
