@@ -96,16 +96,20 @@ class MainActivity : AppCompatActivity() {
 
         equalButton.setOnClickListener {
 
-            try {
-                val stringExpr = numberStringBuilder.toString()
-                val expression = Expression(stringExpr)
-                val result = expression.evaluate().numberValue
-                resultTextView.text = result.toString()
-                numberStringBuilder.clear()
-                numberStringBuilder.append(result.toString())
-            }catch (t: Throwable){
-                Toast.makeText(this@MainActivity, "Exception: $t", Toast.LENGTH_LONG).show()
-            }
+            calculate()
+        }
+    }
+
+    private fun ActivityMainBinding.calculate() {
+        try {
+            val stringExpr = numberStringBuilder.toString()
+            val expression = Expression(stringExpr)
+            val result = expression.evaluate().numberValue
+            resultTextView.text = result.toString()
+            numberStringBuilder.clear()
+            numberStringBuilder.append(result.toString())
+        } catch (t: Throwable) {
+            Toast.makeText(this@MainActivity, "Exception: $t", Toast.LENGTH_LONG).show()
         }
     }
 
